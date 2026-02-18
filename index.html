@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sergey Iskandaryan — DevOps Lead / Platform Engineer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --primary: #1a8fb4;
+      --primary-dark: #14708e;
+      --primary-light: #e8f4f8;
+      --primary-glow: rgba(26, 143, 180, 0.08);
+      --accent: #0f5f7a;
+      --text: #1a1a2e;
+      --text-secondary: #4a4a6a;
+      --text-muted: #6b6b8a;
+      --bg: #ffffff;
+      --bg-alt: #f7f9fc;
+      --border: #e2e8f0;
+      --border-light: #f0f4f8;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+      --radius: 8px;
+      --radius-sm: 5px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: #eef2f7;
+      line-height: 1.6;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 30px auto;
+      background: var(--bg);
+      box-shadow: var(--shadow-lg);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* ── Controls ── */
+    .controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+      z-index: 1000;
+    }
+    .controls button {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border: 2px solid var(--primary);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: var(--bg);
+      color: var(--primary);
+    }
+    .controls button:hover {
+      background: var(--primary);
+      color: white;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+    .controls button.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 48px 56px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: 80px;
+      width: 120px; height: 120px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .header h1 {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+      position: relative;
+    }
+    .header .title {
+      font-size: 17px;
+      font-weight: 500;
+      opacity: 0.92;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 13px;
+      opacity: 0.88;
+      position: relative;
+    }
+    .header-meta .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .header-meta .meta-icon {
+      font-size: 15px;
+      opacity: 0.8;
+    }
+
+    /* ── Content ── */
+    .content { padding: 40px 56px 48px; }
+    .section { margin-bottom: 36px; }
+    .section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::before {
+      content: '';
+      width: 4px; height: 18px;
+      background: var(--primary);
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    /* ── Summary ── */
+    .summary-text {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      text-align: justify;
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+    }
+    .skill-category {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .skill-category-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary-dark);
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .skill-tag {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 9px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(26, 143, 180, 0.15);
+      white-space: nowrap;
+    }
+
+    /* ── Experience ── */
+    .experience-item {
+      margin-bottom: 28px;
+      position: relative;
+      padding-left: 18px;
+      border-left: 2px solid var(--border);
+    }
+    .experience-item:hover { border-left-color: var(--primary); }
+    .experience-item:last-child { margin-bottom: 0; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .exp-role { font-size: 15px; font-weight: 700; color: var(--text); }
+    .exp-dates {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--primary);
+      white-space: nowrap;
+      background: var(--primary-light);
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+    .exp-company {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+    .exp-bullets { list-style: none; padding: 0; }
+    .exp-bullets li {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      padding: 2px 0 2px 16px;
+      position: relative;
+    }
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .exp-tech {
+      margin-top: 10px;
+      font-size: 11.5px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+    .exp-tech strong { color: var(--text-secondary); font-weight: 600; }
+
+    /* ── Education ── */
+    .edu-item { margin-bottom: 18px; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .edu-degree { font-size: 14px; font-weight: 700; color: var(--text); }
+    .edu-dates { font-size: 12.5px; font-weight: 600; color: var(--primary); }
+    .edu-school {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+    .edu-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Language Toggle ── */
+    .lang-ru { display: none; }
+    body.ru .lang-en { display: none; }
+    body.ru .lang-ru { display: revert; }
+    span.lang-ru { display: none; }
+    body.ru span.lang-en { display: none; }
+    body.ru span.lang-ru { display: inline; }
+    li.lang-ru { display: none; }
+    body.ru li.lang-en { display: none; }
+    body.ru li.lang-ru { display: list-item; }
+    .header-meta .lang-ru { display: none; }
+    body.ru .header-meta .lang-en { display: none; }
+    body.ru .header-meta .lang-ru { display: flex; }
+    .skills-grid .lang-ru { display: none; }
+    body.ru .skills-grid .lang-en { display: none; }
+    body.ru .skills-grid .lang-ru { display: flex; }
+    .experience-item.lang-ru { display: none; }
+    body.ru .experience-item.lang-en { display: none; }
+    body.ru .experience-item.lang-ru { display: block; }
+    .edu-item.lang-ru { display: none; }
+    body.ru .edu-item.lang-en { display: none; }
+    body.ru .edu-item.lang-ru { display: block; }
+
+    /* ── Print ── */
+    @media print {
+      body { background: white; font-size: 12.5px; }
+      .page { margin: 0; box-shadow: none; border-radius: 0; max-width: 100%; }
+      .controls { display: none !important; }
+      .header {
+        padding: 36px 44px 32px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .content { padding: 30px 44px 36px; }
+      .section { margin-bottom: 24px; }
+      .experience-item { page-break-inside: avoid; margin-bottom: 20px; }
+      .edu-item { page-break-inside: avoid; }
+      .section-title { page-break-after: avoid; }
+      .skill-tag {
+        border: 1px solid #ccc;
+        background: #f0f4f8;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .exp-dates { background: none; padding: 0; border: none; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .header { padding: 32px 28px 28px; }
+      .content { padding: 28px 28px 36px; }
+      .header h1 { font-size: 26px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .exp-header { flex-direction: column; }
+      .controls { top: 10px; right: 10px; }
+      .controls button { padding: 6px 12px; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="controls">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ru" onclick="setLang('ru')">RU</button>
+  <button onclick="window.print()">⎙ Print / PDF</button>
+</div>
+
+<div class="page">
+
+  <!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
+  <header class="header">
+    <h1>Sergey Iskandaryan</h1>
+    <div class="title">
+      <span class="lang-en">DevOps Lead &nbsp;|&nbsp; Platform Engineer</span>
+      <span class="lang-ru">DevOps Lead &nbsp;|&nbsp; Platform Engineer</span>
+    </div>
+    <div class="header-meta">
+      <div class="meta-item">
+        <span class="meta-icon">📍</span>
+        <span class="lang-en">Yerevan, Armenia · GMT+4</span>
+        <span class="lang-ru">Ереван, Армения · GMT+4</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-icon">💼</span>
+        <span class="lang-en">7+ years of experience</span>
+        <span class="lang-ru">7+ лет опыта</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-icon">🗣</span>
+        <span class="lang-en">English B2 · Russian Fluent · Armenian Native</span>
+        <span class="lang-ru">Английский B2 · Русский — свободно · Армянский — родной</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- ═══════════════════════ SUMMARY ═══════════════════════ -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="lang-en">Professional Summary</span>
+        <span class="lang-ru">Профессиональный профиль</span>
+      </h2>
+      <p class="summary-text lang-en">
+        DevOps Lead and Platform Engineer with 7+ years of progressive experience in IT infrastructure, Kubernetes orchestration, and CI/CD pipeline design. Expert in multi-cluster Kubernetes deployments, GitOps methodology, and enterprise platform lifecycle management. Experienced in deploying production-grade environments with CloudNativePG PostgreSQL (HA), Strimzi Kafka, Redis and RabbitMQ operators, and MinIO object storage. Proficient in bare-metal and cloud infrastructure provisioning using Terraform, Ansible, and KVM/QEMU/libvirt with cloud-init automation. Strong background in full-stack observability (Prometheus, Grafana, Loki, Tempo, Jaeger, ELK, OpenTelemetry), identity management (Keycloak), security scanning (Trivy, OWASP ZAP), and TLS automation (cert-manager). Skilled in Bash and Python scripting for large-scale infrastructure automation, air-gapped deployments, and end-to-end provisioning workflows.
+      </p>
+      <p class="summary-text lang-ru">
+        DevOps Lead и Platform Engineer с более чем 7-летним опытом в IT-инфраструктуре, оркестрации Kubernetes и проектировании CI/CD пайплайнов. Эксперт в мульти-кластерных развёртываниях Kubernetes, методологии GitOps и управлении жизненным циклом корпоративных платформ. Опыт развёртывания production-ready сред с CloudNativePG PostgreSQL (HA), Strimzi Kafka, операторами Redis и RabbitMQ, а также объектным хранилищем MinIO. Владею инструментами провизионирования bare-metal и облачной инфраструктуры: Terraform, Ansible, KVM/QEMU/libvirt с автоматизацией через cloud-init. Глубокие знания в области наблюдаемости (Prometheus, Grafana, Loki, Tempo, Jaeger, ELK, OpenTelemetry), управления идентификацией (Keycloak), сканирования безопасности (Trivy, OWASP ZAP) и автоматизации TLS-сертификатов (cert-manager). Продвинутые навыки в Bash/Python-скриптинге для масштабной автоматизации инфраструктуры, air-gapped развёртываний и сквозного провизионирования.
+      </p>
+    </section>
+
+    <!-- ═══════════════════════ KEY SKILLS ═══════════════════════ -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="lang-en">Key Skills</span>
+        <span class="lang-ru">Ключевые навыки</span>
+      </h2>
+      <div class="skills-grid">
+
+        <!-- Container & Orchestration -->
+        <div class="skill-category lang-en">
+          <div class="skill-category-title">Container & Orchestration</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">RKE2</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Podman</span>
+            <span class="skill-tag">Helm</span>
+            <span class="skill-tag">Istio</span>
+            <span class="skill-tag">Docker Compose</span>
+          </div>
+        </div>
+        <div class="skill-category lang-ru">
+          <div class="skill-category-title">Контейнеризация и оркестрация</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">RKE2</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Podman</span>
+            <span class="skill-tag">Helm</span>
+            <span class="skill-tag">Istio</span>
+            <span class="skill-tag">Docker Compose</span>
+          </div>
+        </div>
+
+        <!-- CI/CD & GitOps -->
+        <div class="skill-category lang-en">
+          <div class="skill-category-title">CI/CD & GitOps</div>
+          <div class="skill-tags">
+            <span class="skill-tag">GitLab CI/CD</span>
+            <span class="skill-tag">Argo CD</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Harbor</span>
+            <span class="skill-tag">Nexus</span>
+            <span class="skill-tag">Crane</span>
+          </div>
+        </div>
+        <div class="skill-category lang-ru">
+          <div class="skill-category-title">CI/CD и GitOps</div>
+          <div class="skill-tags">
+            <span class="skill-tag">GitLab CI/CD</span>
+            <span class="skill-tag">Argo CD</span>
+            <span class="skill-tag">Jenkins</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Harbor</span>
+            <span class="skill-tag">Nexus</span>
+            <span class="skill-tag">Crane</span>
+          </div>
+        </div>
+
+        <!-- IaC -->
+        <div class="skill-category lang-en">
+          <div class="skill-category-title">Infrastructure as Code</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Terragrunt</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">Vagrant</span>
+            <span class="skill-tag">cloud-init</span>
+          </div>
+        </div>
+        <div class="skill-category lang-ru">
+          <div class="skill-category-title">Инфраструктура как код</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Terragrunt</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">Vagrant</span>
+            <span class="skill-tag">cloud-init</span>
+          </div>
+        </div>
+
+        <!-- Databases & Storage -->
+        <div class="skill-category lang-en">
+          <div class="skill-category-title">Databases & Storage</div>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">CloudNativePG</span>
+            <span class="skill-tag">PgBouncer</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">ClickHouse</span>
+            <span class="skill-tag">MinIO</span>
+            <span class="skill-tag">S3</span>
+            <span class="skill-tag">Longhorn</span>
+            <span class="skill-tag">LINSTOR</span>
+          </div>
+        </div>
+        <div class="skill-category lang-ru">
+          <div class="skill-category-title">Базы данных и хранилища</div>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">CloudNativePG</span>
+            <span class="skill-tag">PgBouncer</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">ClickHouse</span>
+            <span class="skill-tag">MinIO</span>
+            <span class="skill-tag">S3</span>
+            <span class="skill-tag">Longhorn</span>
+            <span class="skill-tag">LINSTOR</span>
+          </div>
+        </div>
+
+        <!-- Messaging -->
+        <div class="skill-category lang-en">
+          <div class="skill-category-title">Messaging & Streaming</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Apache Kafka</span>
+            <span class="skill-tag">Strimzi</span>
+            <span class="skill-tag">RabbitMQ</span>
+            <span class="skill-tag">ActiveMQ</span>
+          </div>
+        </div>
+        <div class="skill-category lang-ru">
+          <div class="skill-category-title">Очереди и стриминг</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Apache Kafka</span>
+            <span class="skill-tag">Strimzi</span>
+            <span class="skill-tag">RabbitMQ</span>
+            <span class="skill-tag">ActiveMQ</span>
+          </div>
+        </div>
+
+        <!-- Observability -->
+        <div class="skill-category lang-en">
+          <div class="skill-category-title">Observability</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">Loki</span>
+            <span class="skill-tag">Tempo</span>
+            <span class="skill-tag">Jaeger</span>
+            <span class="skill-tag">OpenTelemetry</span>
+            <span class="skill-tag">ELK Stack</span>
+            <span class="skill-tag">VictoriaMetrics</span>
+            <span class="skill-tag">Promtail</span>
+            <span class="skill-tag">Alertmanager</span>
+            <span class="skill-tag">Zabbix</span>
+          </div>
+        </div>
+        <div class="skill-category lang-ru">
+          <div class="skill-category-title">Наблюдаемость</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">Loki</span>
+            <span class="skill-tag">Tempo</span>
+            <span class="skill-tag">Jaeger</span>
+            <span class="skill-tag">OpenTelemetry</span>
+            <span class="skill-tag">ELK Stack</span>
+            <span class="skill-tag">VictoriaMetrics</span>
+            <span class="skill-tag">Promtail</span>
+            <span class="skill-tag">Alertmanager</span>
+            <span class="skill-tag">Zabbix</span>
+          </div>
+        </div>
+
+        <!-- Networking & Security -->
+        <div class="skill-category lang-en">
+          <div class="skill-category-title">Networking & Security</div>
+          <div class="skill-tags">
+            <span class="skill-tag">NGINX Ingress</span>
+            <span class="skill-tag">Traefik</span>
+            <span class="skill-tag">Cilium</span>
+            <span class="skill-tag">Canal CNI</span>
+            <span class="skill-tag">nftables</span>
+            <span class="skill-tag">cert-manager</span>
+            <span class="skill-tag">Cloudflare</span>
+            <span class="skill-tag">ExternalDNS</span>
+            <span class="skill-tag">Keycloak</span>
+            <span class="skill-tag">Trivy</span>
+            <span class="skill-tag">OWASP ZAP</span>
+            <span class="skill-tag">Vault</span>
+            <span class="skill-tag">PGP/GPG</span>
+          </div>
+        </div>
+        <div class="skill-category lang-ru">
+          <div class="skill-category-title">Сети и безопасность</div>
+          <div class="skill-tags">
+            <span class="skill-tag">NGINX Ingress</span>
+            <span class="skill-tag">Traefik</span>
+            <span class="skill-tag">Cilium</span>
+            <span class="skill-tag">Canal CNI</span>
+            <span class="skill-tag">nftables</span>
+            <span class="skill-tag">cert-manager</span>
+            <span class="skill-tag">Cloudflare</span>
+            <span class="skill-tag">ExternalDNS</span>
+            <span class="skill-tag">Keycloak</span>
+            <span class="skill-tag">Trivy</span>
+            <span class="skill-tag">OWASP ZAP</span>
+            <span class="skill-tag">Vault</span>
+            <span class="skill-tag">PGP/GPG</span>
+          </div>
+        </div>
+
+        <!-- Cloud & Virtualization -->
+        <div class="skill-category lang-en">
+          <div class="skill-category-title">Cloud & Virtualization</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Yandex Cloud</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">KVM/QEMU/libvirt</span>
+            <span class="skill-tag">VMware vSphere</span>
+            <span class="skill-tag">VirtualBox</span>
+          </div>
+        </div>
+        <div class="skill-category lang-ru">
+          <div class="skill-category-title">Облако и виртуализация</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Yandex Cloud</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">KVM/QEMU/libvirt</span>
+            <span class="skill-tag">VMware vSphere</span>
+            <span class="skill-tag">VirtualBox</span>
+          </div>
+        </div>
+
+        <!-- Scripting & OS -->
+        <div class="skill-category lang-en">
+          <div class="skill-category-title">Scripting & OS</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Lua</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">RHEL</span>
+            <span class="skill-tag">Ubuntu</span>
+            <span class="skill-tag">Debian</span>
+          </div>
+        </div>
+        <div class="skill-category lang-ru">
+          <div class="skill-category-title">Скриптинг и ОС</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Lua</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">RHEL</span>
+            <span class="skill-tag">Ubuntu</span>
+            <span class="skill-tag">Debian</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ WORK EXPERIENCE ═══════════════════════ -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="lang-en">Work Experience</span>
+        <span class="lang-ru">Опыт работы</span>
+      </h2>
+
+      <!-- ──────── DevOps Lead — EN ──────── -->
+      <div class="experience-item lang-en">
+        <div class="exp-header">
+          <div class="exp-role">DevOps Lead</div>
+          <div class="exp-dates">2025 — Present</div>
+        </div>
+        <div class="exp-company">Confidential Project (NDA)</div>
+        <ul class="exp-bullets">
+          <li>Lead a cross-functional DevOps team, establishing engineering standards, deployment strategies, and incident response processes for enterprise-grade platforms</li>
+          <li>Led the migration of legacy Azure-based infrastructure — where Kubernetes deployments relied on Ansible — to Yandex Cloud, establishing proper GitOps standards with Argo CD and eliminating legacy deployment patterns</li>
+          <li>Architect multi-cluster Kubernetes infrastructure spanning 4 environments (dev, QA-1, QA-2, production) with full GitOps automation via Argo CD</li>
+          <li>Design and operate a comprehensive observability platform with Prometheus, Grafana, Loki, Tempo, Promtail, Alertmanager, and OpenTelemetry for unified metrics, logs, and distributed tracing</li>
+          <li>Implement security-first approach: Trivy Operator for container vulnerability scanning, OWASP ZAP for DAST, PGP-encrypted secrets management with HashiCorp Vault, and RBAC policies</li>
+          <li>Manage Yandex Cloud infrastructure including managed PostgreSQL, MongoDB sharded clusters, Redis (Valkey), ClickHouse analytics, S3 object storage, and network load balancers</li>
+          <li>Orchestrate CI/CD automation with GitLab CI/CD multi-stage pipelines, Helm-based deployments, Nexus artifact management, and Podman/Docker container builds</li>
+          <li>Engineer network architecture utilizing Cilium CNI, NGINX Ingress Controller, ExternalDNS for automated DNS management, and VPN for secure infrastructure access</li>
+          <li>Develop Python and Bash tooling for infrastructure topology generation, C4 architecture diagrams, and deployment orchestration with n8n workflow automation</li>
+          <li>Establish backup and disaster recovery strategies with defined RTO/RPO targets across all managed database services</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Kubernetes, Helm, ArgoCD, GitLab CI/CD, Docker, Podman, Yandex Cloud, Azure, PostgreSQL, MongoDB, Redis, ClickHouse, Prometheus, Grafana, Loki, Tempo, OpenTelemetry, Promtail, Alertmanager, ActiveMQ, NGINX Ingress, Cilium, cert-manager, Trivy, OWASP ZAP, ExternalDNS, Nexus, Vault, S3, PGP/GPG, Python, Bash, n8n
+        </div>
+      </div>
+
+      <!-- ──────── DevOps Lead — RU ──────── -->
+      <div class="experience-item lang-ru">
+        <div class="exp-header">
+          <div class="exp-role">DevOps Lead</div>
+          <div class="exp-dates">2025 — н.в.</div>
+        </div>
+        <div class="exp-company">Конфиденциальный проект (NDA)</div>
+        <ul class="exp-bullets">
+          <li>Руководство кросс-функциональной DevOps-командой: разработка инженерных стандартов, стратегий развёртывания и процессов реагирования на инциденты</li>
+          <li>Миграция legacy-инфраструктуры из Azure — где развёртывания Kubernetes выполнялись через Ansible — в Yandex Cloud с внедрением полноценных стандартов GitOps через Argo CD и устранением устаревших паттернов развёртывания</li>
+          <li>Проектирование мульти-кластерной инфраструктуры Kubernetes в 4 средах (dev, QA-1, QA-2, production) с полной автоматизацией GitOps через Argo CD</li>
+          <li>Разработка и эксплуатация комплексной платформы наблюдаемости: Prometheus, Grafana, Loki, Tempo, Promtail, Alertmanager и OpenTelemetry для унифицированных метрик, логов и распределённой трассировки</li>
+          <li>Внедрение подхода security-first: Trivy Operator для сканирования уязвимостей контейнеров, OWASP ZAP для DAST, PGP-шифрование секретов с HashiCorp Vault и RBAC-политики</li>
+          <li>Управление инфраструктурой Yandex Cloud: managed PostgreSQL, шардированные кластеры MongoDB, Redis (Valkey), аналитический ClickHouse, S3 объектное хранилище и сетевые балансировщики нагрузки</li>
+          <li>Оркестрация CI/CD автоматизации с GitLab CI/CD многоэтапными пайплайнами, Helm-based развёртываниями, Nexus для управления артефактами и Podman/Docker-сборками</li>
+          <li>Проектирование сетевой архитектуры: Cilium CNI, NGINX Ingress Controller, ExternalDNS для автоматизации DNS и VPN для безопасного доступа к инфраструктуре</li>
+          <li>Разработка инструментов на Python и Bash для генерации топологии инфраструктуры, C4-диаграмм архитектуры и оркестрации развёртываний; автоматизация рабочих процессов через n8n</li>
+          <li>Разработка стратегий резервного копирования и аварийного восстановления с определёнными целями RTO/RPO для всех управляемых сервисов баз данных</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Технологии:</strong> Kubernetes, Helm, ArgoCD, GitLab CI/CD, Docker, Podman, Yandex Cloud, Azure, PostgreSQL, MongoDB, Redis, ClickHouse, Prometheus, Grafana, Loki, Tempo, OpenTelemetry, Promtail, Alertmanager, ActiveMQ, NGINX Ingress, Cilium, cert-manager, Trivy, OWASP ZAP, ExternalDNS, Nexus, Vault, S3, PGP/GPG, Python, Bash, n8n
+        </div>
+      </div>
+
+      <!-- ──────── Platform Engineer — EN ──────── -->
+      <div class="experience-item lang-en">
+        <div class="exp-header">
+          <div class="exp-role">Platform Engineer</div>
+          <div class="exp-dates">2023 — 2025</div>
+        </div>
+        <div class="exp-company">Confidential Project (NDA)</div>
+        <ul class="exp-bullets">
+          <li>Designed and automated bare-metal server provisioning using Ansible playbooks with a 6-part phased deployment workflow: server setup, networking, control-plane VMs, worker VMs, reverse load balancer, and RKE2 cluster bootstrap</li>
+          <li>Provisioned KVM/QEMU/libvirt virtual machines via Ansible with cloud-init, deploying multi-node Kubernetes clusters (3 control-plane + 4 worker nodes) on dedicated servers</li>
+          <li>Developed a comprehensive infrastructure bootstrap script (2,600+ lines Bash) automating full platform deployment — from RKE2 provisioning to TLS automation, database clusters, Kafka, MinIO, monitoring, logging, and tracing stacks</li>
+          <li>Deployed and managed RKE2 Kubernetes clusters with Canal CNI, HA control plane, and dedicated worker nodes across multiple environments (dev, IFT, staging, production)</li>
+          <li>Implemented CloudNativePG PostgreSQL (3-instance HA with replication), PgBouncer connection pooling, automated per-tenant database provisioning, and backup/restore procedures</li>
+          <li>Operated Strimzi Kafka operator for event streaming with topic/user provisioning automation, Redis operator for distributed caching, and RabbitMQ Cluster Operator for message brokering</li>
+          <li>Deployed self-hosted GitLab (SCM, CI/CD, container registry) and Harbor OCI-compliant registry; configured Crane for cross-registry image mirroring and Argo CD for GitOps with auto-sync, self-heal, and auto-prune policies</li>
+          <li>Authored and maintained Helm charts for all platform and application services with configurable multi-environment values; automated chart packaging and pushing to OCI registries</li>
+          <li>Engineered network security with nftables-based reverse load balancer (hash-based traffic distribution), NAT-based libvirt networks, and DNAT port forwarding</li>
+          <li>Automated TLS certificate lifecycle with cert-manager ClusterIssuers, Let's Encrypt, Cloudflare DNS-01 challenges, and wildcard certificate support</li>
+          <li>Deployed MinIO S3-compatible object storage, Longhorn and LINSTOR distributed block storage; configured air-gapped environments with registry mirroring for disconnected deployments</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Kubernetes, RKE2, Helm, Ansible, GitLab CI/CD, GitLab (self-hosted), Argo CD, Docker, Crane, Harbor, PostgreSQL, CloudNativePG, PgBouncer, Redis, RabbitMQ, Kafka, Strimzi, MinIO, NGINX Ingress, Traefik, Canal CNI, cert-manager, Cloudflare, nftables, KVM/QEMU/libvirt, cloud-init, Longhorn, LINSTOR, Keycloak, Cockpit, Bash, Linux
+        </div>
+      </div>
+
+      <!-- ──────── Platform Engineer — RU ──────── -->
+      <div class="experience-item lang-ru">
+        <div class="exp-header">
+          <div class="exp-role">Platform Engineer</div>
+          <div class="exp-dates">2023 — 2025</div>
+        </div>
+        <div class="exp-company">Конфиденциальный проект (NDA)</div>
+        <ul class="exp-bullets">
+          <li>Проектирование и автоматизация провизионирования bare-metal серверов с помощью Ansible playbooks по 6-этапному рабочему процессу: настройка серверов, сеть, ВМ control-plane, ВМ worker, реверс-балансировщик, bootstrap RKE2-кластера</li>
+          <li>Провизионирование виртуальных машин KVM/QEMU/libvirt через Ansible с cloud-init, развёртывание многоузловых кластеров Kubernetes (3 control-plane + 4 worker ноды) на выделенных серверах</li>
+          <li>Разработка комплексного скрипта развёртывания инфраструктуры (2600+ строк Bash), автоматизирующего полную установку платформы — от провизионирования RKE2 до TLS-автоматизации, кластеров БД, Kafka, MinIO, мониторинга, логирования и трассировки</li>
+          <li>Развёртывание и управление кластерами RKE2 Kubernetes с Canal CNI, HA control plane и выделенными worker нодами в нескольких средах (dev, IFT, staging, production)</li>
+          <li>Внедрение CloudNativePG PostgreSQL (3-инстансный HA с репликацией), PgBouncer-пулинг соединений, автоматизированное провизионирование БД по тенантам и процедуры резервного копирования/восстановления</li>
+          <li>Эксплуатация оператора Strimzi Kafka для стриминга событий с автоматизацией провизионирования топиков/пользователей, Redis-оператора для кеширования и RabbitMQ Cluster Operator для брокеринга сообщений</li>
+          <li>Развёртывание self-hosted GitLab (SCM, CI/CD, container registry) и Harbor OCI-реестра; настройка Crane для кросс-реестрового зеркалирования образов и Argo CD для GitOps с auto-sync, self-heal и auto-prune</li>
+          <li>Разработка и поддержка Helm-чартов для всех платформенных и прикладных сервисов с конфигурируемыми мульти-средовыми значениями; автоматизация упаковки чартов и публикации в OCI-реестры</li>
+          <li>Проектирование сетевой безопасности: nftables-based реверс-балансировщик (хеш-распределение трафика), NAT-based libvirt-сети и DNAT-проброс портов</li>
+          <li>Автоматизация жизненного цикла TLS-сертификатов с cert-manager ClusterIssuers, Let's Encrypt, Cloudflare DNS-01 и поддержкой wildcard-сертификатов</li>
+          <li>Развёртывание MinIO S3-совместимого хранилища, Longhorn и LINSTOR блочного хранилища; настройка air-gapped сред с зеркалированием реестров для изолированных развёртываний</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Технологии:</strong> Kubernetes, RKE2, Helm, Ansible, GitLab CI/CD, GitLab (self-hosted), Argo CD, Docker, Crane, Harbor, PostgreSQL, CloudNativePG, PgBouncer, Redis, RabbitMQ, Kafka, Strimzi, MinIO, NGINX Ingress, Traefik, Canal CNI, cert-manager, Cloudflare, nftables, KVM/QEMU/libvirt, cloud-init, Longhorn, LINSTOR, Keycloak, Cockpit, Bash, Linux
+        </div>
+      </div>
+
+      <!-- ──────── Senior DevOps Engineer — EN ──────── -->
+      <div class="experience-item lang-en">
+        <div class="exp-header">
+          <div class="exp-role">Senior DevOps Engineer</div>
+          <div class="exp-dates">2021 — 2023</div>
+        </div>
+        <div class="exp-company">Confidential Project (NDA)</div>
+        <ul class="exp-bullets">
+          <li>Designed and maintained CI/CD pipelines with GitLab CI and Jenkins, ensuring automated, reproducible software delivery across multiple environments</li>
+          <li>Provisioned and managed Kubernetes clusters on-premises and in AWS, achieving scalable, fault-tolerant application deployments</li>
+          <li>Implemented observability and monitoring solutions including Prometheus, VictoriaMetrics, Thanos, ELK stack, and Loki</li>
+          <li>Deployed Argo CD and Helm charts for GitOps-based delivery; utilized Terraform and Terragrunt for infrastructure-as-code provisioning</li>
+          <li>Automated host configuration and drift management with Ansible; administered CDN and DNS via Cloudflare</li>
+          <li>Administered SQL and NoSQL databases — MongoDB, Redis, and PostgreSQL — with a focus on high availability and backup strategies</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Docker, Kubernetes, Istio, NGINX Ingress, Helm, HelmWave, Jenkins, GitLab CI, Argo CD, Ansible, Terraform, Terragrunt, AWS, Prometheus, Thanos, VictoriaMetrics, Grafana, ELK Stack, Loki, Cloudflare, MongoDB, PostgreSQL, Apache Kafka, RabbitMQ, Redis, RHEL, Bash, Nginx, GitHub Actions, Jira, Confluence
+        </div>
+      </div>
+
+      <!-- ──────── Senior DevOps Engineer — RU ──────── -->
+      <div class="experience-item lang-ru">
+        <div class="exp-header">
+          <div class="exp-role">Senior DevOps Engineer</div>
+          <div class="exp-dates">2021 — 2023</div>
+        </div>
+        <div class="exp-company">Конфиденциальный проект (NDA)</div>
+        <ul class="exp-bullets">
+          <li>Проектирование и поддержка CI/CD пайплайнов с GitLab CI и Jenkins для автоматизированной и воспроизводимой доставки ПО</li>
+          <li>Провизионирование и управление кластерами Kubernetes on-premises и в AWS для масштабируемых отказоустойчивых развёртываний</li>
+          <li>Внедрение решений мониторинга и наблюдаемости: Prometheus, VictoriaMetrics, Thanos, ELK stack, Loki</li>
+          <li>Развёртывание Argo CD и Helm-чартов для GitOps-автоматизации; использование Terraform и Terragrunt для IaC-провизионирования</li>
+          <li>Автоматизация конфигурации серверов и контроль дрифта с Ansible; администрирование CDN и DNS через Cloudflare</li>
+          <li>Администрирование SQL и NoSQL баз данных — MongoDB, Redis, PostgreSQL — с фокусом на высокую доступность и стратегии резервного копирования</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Технологии:</strong> Docker, Kubernetes, Istio, NGINX Ingress, Helm, HelmWave, Jenkins, GitLab CI, Argo CD, Ansible, Terraform, Terragrunt, AWS, Prometheus, Thanos, VictoriaMetrics, Grafana, ELK Stack, Loki, Cloudflare, MongoDB, PostgreSQL, Apache Kafka, RabbitMQ, Redis, RHEL, Bash, Nginx, GitHub Actions, Jira, Confluence
+        </div>
+      </div>
+
+      <!-- ──────── CIO — EN ──────── -->
+      <div class="experience-item lang-en">
+        <div class="exp-header">
+          <div class="exp-role">Chief Information Officer (CIO)</div>
+          <div class="exp-dates">2020 — 2021</div>
+        </div>
+        <div class="exp-company">AZAD Pharma AG</div>
+        <ul class="exp-bullets">
+          <li>Directed IT department operations, serving as the primary technology liaison between internal stakeholders and external partners</li>
+          <li>Ensured infrastructure reliability and security across Windows Server, VMware vSphere, and enterprise network environments</li>
+          <li>Established IT governance policies covering data security, system access controls, and departmental budget management</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Windows Server, VMware vSphere, Hyper-V, FortiGate, HP Networking, Cisco Switches, DNS Server, DHCP Server, Ansible
+        </div>
+      </div>
+
+      <!-- ──────── CIO — RU ──────── -->
+      <div class="experience-item lang-ru">
+        <div class="exp-header">
+          <div class="exp-role">Главный IT-директор (CIO)</div>
+          <div class="exp-dates">2020 — 2021</div>
+        </div>
+        <div class="exp-company">AZAD Pharma AG</div>
+        <ul class="exp-bullets">
+          <li>Руководство IT-отделом, координация с внутренними подразделениями и внешними партнёрами в качестве основного IT-контакта</li>
+          <li>Обеспечение надёжности и безопасности IT-инфраструктуры: Windows Server, VMware vSphere, корпоративные сетевые среды</li>
+          <li>Разработка IT-политик безопасности данных, контроля доступа к системам и управление бюджетом IT-отдела</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Технологии:</strong> Windows Server, VMware vSphere, Hyper-V, FortiGate, HP Networking, Cisco Switches, DNS Server, DHCP Server, Ansible
+        </div>
+      </div>
+
+      <!-- ──────── IT Monitoring — EN ──────── -->
+      <div class="experience-item lang-en">
+        <div class="exp-header">
+          <div class="exp-role">IT Monitoring Specialist</div>
+          <div class="exp-dates">2020 — 2021</div>
+        </div>
+        <div class="exp-company">Digitain Armenia</div>
+        <ul class="exp-bullets">
+          <li>Managed Linux-based server infrastructure, ensuring optimal performance and high uptime across production environments</li>
+          <li>Configured DNS services with Cloudflare and implemented SSL certificate management for secure communications</li>
+          <li>Deployed and maintained monitoring solutions using Zabbix, ELK stack, AppDynamics, and Grafana dashboards</li>
+          <li>Automated operational tasks with Bash scripting; configured and maintained Nginx and IIS web servers</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> AppDynamics, SSL Certificates, Cloudflare, ELK Stack, PowerShell, IIS, RHEL, Ansible, Bash, Nginx, Grafana, Zabbix, Jenkins
+        </div>
+      </div>
+
+      <!-- ──────── IT Monitoring — RU ──────── -->
+      <div class="experience-item lang-ru">
+        <div class="exp-header">
+          <div class="exp-role">Специалист по IT-мониторингу</div>
+          <div class="exp-dates">2020 — 2021</div>
+        </div>
+        <div class="exp-company">Digitain Armenia</div>
+        <ul class="exp-bullets">
+          <li>Управление Linux-серверной инфраструктурой с обеспечением оптимальной производительности и высокого аптайма</li>
+          <li>Настройка DNS-сервисов через Cloudflare и управление SSL-сертификатами для безопасных коммуникаций</li>
+          <li>Развёртывание и поддержка систем мониторинга: Zabbix, ELK stack, AppDynamics и дашборды Grafana</li>
+          <li>Автоматизация операционных задач Bash-скриптами; конфигурация и поддержка веб-серверов Nginx и IIS</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Технологии:</strong> AppDynamics, SSL Certificates, Cloudflare, ELK Stack, PowerShell, IIS, RHEL, Ansible, Bash, Nginx, Grafana, Zabbix, Jenkins
+        </div>
+      </div>
+
+      <!-- ──────── SysAdmin — EN ──────── -->
+      <div class="experience-item lang-en">
+        <div class="exp-header">
+          <div class="exp-role">Systems Administrator</div>
+          <div class="exp-dates">2020</div>
+        </div>
+        <div class="exp-company">Digital Edge IT</div>
+        <ul class="exp-bullets">
+          <li>Provided remote infrastructure support for production Windows Server environments (2008/2012/2016), Active Directory, and Exchange Server</li>
+          <li>Managed client network infrastructure, VMware vSphere administration, and Veeam Backup solutions</li>
+          <li>Configured and maintained network services in coordination with internet service providers</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> Windows Server, Microsoft Exchange, VMware Infrastructure, Veeam Backup, Active Directory
+        </div>
+      </div>
+
+      <!-- ──────── SysAdmin — RU ──────── -->
+      <div class="experience-item lang-ru">
+        <div class="exp-header">
+          <div class="exp-role">Системный администратор</div>
+          <div class="exp-dates">2020</div>
+        </div>
+        <div class="exp-company">Digital Edge IT</div>
+        <ul class="exp-bullets">
+          <li>Удалённая поддержка production-сред Windows Server (2008/2012/2016), Active Directory и Exchange Server</li>
+          <li>Управление сетевой инфраструктурой клиентов, администрирование VMware vSphere и решений Veeam Backup</li>
+          <li>Конфигурация и поддержка сетевых сервисов совместно с интернет-провайдерами</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Технологии:</strong> Windows Server, Microsoft Exchange, VMware Infrastructure, Veeam Backup, Active Directory
+        </div>
+      </div>
+
+      <!-- ──────── IT Support — EN ──────── -->
+      <div class="experience-item lang-en">
+        <div class="exp-header">
+          <div class="exp-role">IT Support Engineer</div>
+          <div class="exp-dates">2019 — 2020</div>
+        </div>
+        <div class="exp-company">Ucom</div>
+        <ul class="exp-bullets">
+          <li>Implemented and managed complex networking solutions — DNS, DHCP, routing, and switching — improving system reliability and client infrastructure performance</li>
+          <li>Maintained VPN and proxy technologies, enhancing network security and connectivity across distributed environments</li>
+          <li>Conducted end-user training sessions and provided expert networking support for enterprise clients</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Technologies:</strong> TCP/IP, VPN, DNS, DHCP, routing, switching, OSI model
+        </div>
+      </div>
+
+      <!-- ──────── IT Support — RU ──────── -->
+      <div class="experience-item lang-ru">
+        <div class="exp-header">
+          <div class="exp-role">Инженер технической поддержки</div>
+          <div class="exp-dates">2019 — 2020</div>
+        </div>
+        <div class="exp-company">Ucom</div>
+        <ul class="exp-bullets">
+          <li>Внедрение и управление сетевыми решениями — DNS, DHCP, маршрутизация и коммутация — повышение надёжности и производительности клиентской инфраструктуры</li>
+          <li>Обслуживание VPN и прокси-технологий для повышения безопасности и связности сети в распределённых средах</li>
+          <li>Проведение обучающих сессий для конечных пользователей и экспертная поддержка сетевой инфраструктуры корпоративных клиентов</li>
+        </ul>
+        <div class="exp-tech">
+          <strong>Технологии:</strong> TCP/IP, VPN, DNS, DHCP, маршрутизация, коммутация, модель OSI
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════ EDUCATION ═══════════════════════ -->
+    <section class="section">
+      <h2 class="section-title">
+        <span class="lang-en">Education</span>
+        <span class="lang-ru">Образование</span>
+      </h2>
+
+      <div class="edu-item lang-en">
+        <div class="edu-header">
+          <div class="edu-degree">Bachelor's Degree, Computer Science</div>
+          <div class="edu-dates">2017 — 2021</div>
+        </div>
+        <div class="edu-school">National Polytechnic University of Armenia</div>
+        <div class="edu-desc">Studied Computational Mathematics with additional qualifications as an English-to-Armenian translator in the field of Mathematics.</div>
+      </div>
+      <div class="edu-item lang-ru">
+        <div class="edu-header">
+          <div class="edu-degree">Бакалавр, Информатика</div>
+          <div class="edu-dates">2017 — 2021</div>
+        </div>
+        <div class="edu-school">Национальный Политехнический Университет Армении</div>
+        <div class="edu-desc">Изучение вычислительной математики. Дополнительная квалификация переводчика с английского языка в области математики.</div>
+      </div>
+
+      <div class="edu-item lang-en">
+        <div class="edu-header">
+          <div class="edu-degree">Bachelor's Degree, Software Engineering (EDA Specialization)</div>
+          <div class="edu-dates">2017 — 2021</div>
+        </div>
+        <div class="edu-school">Synopsys Armenia Educational Department (SAED)</div>
+        <div class="edu-desc">Fundamental hardware concepts (CPU, memory, interrupts), low-level programming in Assembler (i386), Pascal, and C under Linux. Programming paradigms: declarative, functional, imperative, and OOP. C++98 and object-oriented design principles.</div>
+      </div>
+      <div class="edu-item lang-ru">
+        <div class="edu-header">
+          <div class="edu-degree">Бакалавр, Программная инженерия (EDA специализация)</div>
+          <div class="edu-dates">2017 — 2021</div>
+        </div>
+        <div class="edu-school">Synopsys Armenia Educational Department (SAED)</div>
+        <div class="edu-desc">Фундаментальные концепции аппаратного обеспечения (CPU, память, прерывания), низкоуровневое программирование на Assembler (i386), Pascal и C в среде Linux. Парадигмы программирования: декларативное, функциональное, императивное и ООП. C++98 и принципы объектно-ориентированного проектирования.</div>
+      </div>
+
+    </section>
+
+  </div>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.body.classList.toggle('ru', lang === 'ru');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
+    document.documentElement.lang = lang;
+    document.title = lang === 'ru'
+      ? 'Сергей Искандарян — DevOps Lead / Platform Engineer'
+      : 'Sergey Iskandaryan — DevOps Lead / Platform Engineer';
+  }
+</script>
+
+</body>
+</html>
