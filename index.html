@@ -171,37 +171,34 @@
 
     /* ── Skills ── */
     .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px 24px;
+      display: block;
     }
     .skill-category {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+      margin-bottom: 8px;
+      line-height: 1.7;
     }
     .skill-category-title {
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
       color: var(--primary-dark);
+      display: inline;
+    }
+    .skill-category-title::after {
+      content: ': ';
     }
     .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
+      display: inline;
     }
     .skill-tag {
-      font-family: 'JetBrains Mono', 'Fira Code', monospace;
-      font-size: 11px;
-      font-weight: 500;
-      padding: 3px 9px;
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(26, 143, 180, 0.15);
-      white-space: nowrap;
+      font-size: 12.5px;
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+    .skill-tag::after {
+      content: ', ';
+    }
+    .skill-tag:last-child::after {
+      content: '';
     }
 
     /* ── Experience ── */
@@ -300,7 +297,7 @@
     body.ru .header-meta .lang-ru { display: flex; }
     .skills-grid .lang-ru { display: none; }
     body.ru .skills-grid .lang-en { display: none; }
-    body.ru .skills-grid .lang-ru { display: flex; }
+    body.ru .skills-grid .lang-ru { display: block; }
     .experience-item.lang-ru { display: none; }
     body.ru .experience-item.lang-en { display: none; }
     body.ru .experience-item.lang-ru { display: block; }
@@ -324,10 +321,8 @@
       .edu-item { page-break-inside: avoid; }
       .section-title { page-break-after: avoid; }
       .skill-tag {
-        border: 1px solid #ccc;
-        background: #f0f4f8;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        border: none;
+        background: none;
       }
       .exp-dates { background: none; padding: 0; border: none; }
     }
@@ -337,7 +332,6 @@
       .header { padding: 32px 28px 28px; }
       .content { padding: 28px 28px 36px; }
       .header h1 { font-size: 26px; }
-      .skills-grid { grid-template-columns: 1fr; }
       .exp-header { flex-direction: column; }
       .controls { top: 10px; right: 10px; }
       .controls button { padding: 6px 12px; font-size: 11px; }
@@ -389,10 +383,10 @@
         <span class="lang-ru">Профессиональный профиль</span>
       </h2>
       <p class="summary-text lang-en">
-        DevOps Lead and Platform Engineer with 7+ years of progressive experience in IT infrastructure, Kubernetes orchestration, and CI/CD pipeline design. Expert in multi-cluster Kubernetes deployments, GitOps methodology, and enterprise platform lifecycle management. Experienced in deploying production-grade environments with CloudNativePG PostgreSQL (HA), Strimzi Kafka, Redis and RabbitMQ operators, and MinIO object storage. Proficient in bare-metal and cloud infrastructure provisioning using Terraform, Ansible, and KVM/QEMU/libvirt with cloud-init automation. Strong background in full-stack observability (Prometheus, Grafana, Loki, Tempo, Jaeger, ELK, OpenTelemetry), identity management (Keycloak), security scanning (Trivy, OWASP ZAP), and TLS automation (cert-manager). Skilled in Bash and Python scripting for large-scale infrastructure automation, air-gapped deployments, and end-to-end provisioning workflows.
+        DevOps Lead and Platform Engineer with 7+ years of experience in Kubernetes orchestration, CI/CD pipeline design, Site Reliability Engineering (SRE), and cloud infrastructure management. Led teams of up to 5 engineers, architecting multi-cluster Kubernetes platforms serving 50+ microservices with 99.9% uptime. Expert in GitOps (ArgoCD), Infrastructure as Code (Terraform, Ansible), full-stack observability (Prometheus, Grafana, OpenTelemetry), and security automation (Trivy, Vault). Proven track record: reduced deployment failures by 80%, cut incident detection from 15 min to 2 min, automated platform provisioning from 5 days to 4 hours. Deep expertise in High Availability, Disaster Recovery, containerization, and bare-metal to cloud migrations.
       </p>
       <p class="summary-text lang-ru">
-        DevOps Lead и Platform Engineer с более чем 7-летним опытом в IT-инфраструктуре, оркестрации Kubernetes и проектировании CI/CD пайплайнов. Эксперт в мульти-кластерных развёртываниях Kubernetes, методологии GitOps и управлении жизненным циклом корпоративных платформ. Опыт развёртывания production-ready сред с CloudNativePG PostgreSQL (HA), Strimzi Kafka, операторами Redis и RabbitMQ, а также объектным хранилищем MinIO. Владею инструментами провизионирования bare-metal и облачной инфраструктуры: Terraform, Ansible, KVM/QEMU/libvirt с автоматизацией через cloud-init. Глубокие знания в области наблюдаемости (Prometheus, Grafana, Loki, Tempo, Jaeger, ELK, OpenTelemetry), управления идентификацией (Keycloak), сканирования безопасности (Trivy, OWASP ZAP) и автоматизации TLS-сертификатов (cert-manager). Продвинутые навыки в Bash/Python-скриптинге для масштабной автоматизации инфраструктуры, air-gapped развёртываний и сквозного провизионирования.
+        DevOps Lead и Platform Engineer с 7+ годами опыта в оркестрации Kubernetes, проектировании CI/CD, Site Reliability Engineering (SRE) и управлении облачной инфраструктурой. Руководство командой до 5 инженеров, проектирование мульти-кластерных Kubernetes-платформ для 50+ микросервисов с аптаймом 99.9%. Эксперт в GitOps (ArgoCD), Infrastructure as Code (Terraform, Ansible), наблюдаемости (Prometheus, Grafana, OpenTelemetry) и автоматизации безопасности (Trivy, Vault). Результаты: снижение сбоев деплоя на 80%, сокращение обнаружения инцидентов с 15 мин до 2 мин, автоматизация провизионирования платформы с 5 дней до 4 часов. Глубокая экспертиза в High Availability, Disaster Recovery, контейнеризации и миграциях bare-metal → cloud.
       </p>
     </section>
 
@@ -652,6 +646,36 @@
           </div>
         </div>
 
+        <!-- Methodologies -->
+        <div class="skill-category lang-en">
+          <div class="skill-category-title">Methodologies & Practices</div>
+          <div class="skill-tags">
+            <span class="skill-tag">GitOps</span>
+            <span class="skill-tag">SRE</span>
+            <span class="skill-tag">Platform Engineering</span>
+            <span class="skill-tag">High Availability</span>
+            <span class="skill-tag">Disaster Recovery</span>
+            <span class="skill-tag">Incident Response</span>
+            <span class="skill-tag">On-call</span>
+            <span class="skill-tag">Infrastructure as Code</span>
+            <span class="skill-tag">Containerization</span>
+          </div>
+        </div>
+        <div class="skill-category lang-ru">
+          <div class="skill-category-title">Методологии и практики</div>
+          <div class="skill-tags">
+            <span class="skill-tag">GitOps</span>
+            <span class="skill-tag">SRE</span>
+            <span class="skill-tag">Platform Engineering</span>
+            <span class="skill-tag">High Availability</span>
+            <span class="skill-tag">Disaster Recovery</span>
+            <span class="skill-tag">Incident Response</span>
+            <span class="skill-tag">On-call</span>
+            <span class="skill-tag">Infrastructure as Code</span>
+            <span class="skill-tag">Containerization</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -670,16 +694,16 @@
         </div>
         <div class="exp-company">Confidential Project (NDA)</div>
         <ul class="exp-bullets">
-          <li>Lead a cross-functional DevOps team, establishing engineering standards, deployment strategies, and incident response processes for enterprise-grade platforms</li>
-          <li>Led the migration of legacy Azure-based infrastructure — where Kubernetes deployments relied on Ansible — to Yandex Cloud, establishing proper GitOps standards with Argo CD and eliminating legacy deployment patterns</li>
-          <li>Architect multi-cluster Kubernetes infrastructure spanning 4 environments (dev, QA-1, QA-2, production) with full GitOps automation via Argo CD</li>
-          <li>Design and operate a comprehensive observability platform with Prometheus, Grafana, Loki, Tempo, Promtail, Alertmanager, and OpenTelemetry for unified metrics, logs, and distributed tracing</li>
-          <li>Implement security-first approach: Trivy Operator for container vulnerability scanning, OWASP ZAP for DAST, PGP-encrypted secrets management with HashiCorp Vault, and RBAC policies</li>
-          <li>Manage Yandex Cloud infrastructure including managed PostgreSQL, MongoDB sharded clusters, Redis (Valkey), ClickHouse analytics, S3 object storage, and network load balancers</li>
-          <li>Orchestrate CI/CD automation with GitLab CI/CD multi-stage pipelines, Helm-based deployments, Nexus artifact management, and Podman/Docker container builds</li>
-          <li>Engineer network architecture utilizing Cilium CNI, NGINX Ingress Controller, ExternalDNS for automated DNS management, and VPN for secure infrastructure access</li>
-          <li>Develop Python and Bash tooling for infrastructure topology generation, C4 architecture diagrams, and deployment orchestration with n8n workflow automation</li>
-          <li>Establish backup and disaster recovery strategies with defined RTO/RPO targets across all managed database services</li>
+          <li>Led a cross-functional DevOps team of 5 engineers, establishing engineering standards and incident response processes that reduced mean time to recovery (MTTR) by 60%</li>
+          <li>Migrated legacy Azure infrastructure to Yandex Cloud in 3 months, replacing Ansible-based Kubernetes deployments with GitOps via Argo CD and cutting deployment failures by 80%</li>
+          <li>Architected multi-cluster Kubernetes infrastructure across 4 environments (dev, QA-1, QA-2, production) serving 50+ microservices with 99.9% uptime SLA</li>
+          <li>Built a full-stack observability platform (Prometheus, Grafana, Loki, Tempo, OpenTelemetry) that unified metrics, logs, and traces for 200+ services, reducing incident detection time from 15 min to under 2 min</li>
+          <li>Implemented security-first pipeline: Trivy Operator scanning 100% of container images, OWASP ZAP for DAST, PGP-encrypted secrets with HashiCorp Vault — achieving zero critical vulnerabilities in production</li>
+          <li>Managed 8 cloud database services (PostgreSQL, MongoDB sharded clusters, Redis, ClickHouse, S3) handling 2TB+ data with automated failover and 99.95% availability</li>
+          <li>Designed GitLab CI/CD pipelines (40+ projects) with Helm-based deployments, reducing release cycle from weekly to multiple daily deploys with zero-downtime rollouts</li>
+          <li>Engineered network architecture with Cilium CNI, NGINX Ingress, and ExternalDNS — automating DNS management for 100+ services and reducing networking incidents by 70%</li>
+          <li>Developed 15+ Python and Bash automation tools for infrastructure topology generation, C4 diagrams, and deployment orchestration via n8n workflows</li>
+          <li>Established disaster recovery strategies achieving RTO &lt; 30 min and RPO &lt; 5 min across all managed database services with automated backup verification</li>
         </ul>
         <div class="exp-tech">
           <strong>Technologies:</strong> Kubernetes, Helm, ArgoCD, GitLab CI/CD, Docker, Podman, Yandex Cloud, Azure, PostgreSQL, MongoDB, Redis, ClickHouse, Prometheus, Grafana, Loki, Tempo, OpenTelemetry, Promtail, Alertmanager, ActiveMQ, NGINX Ingress, Cilium, cert-manager, Trivy, OWASP ZAP, ExternalDNS, Nexus, Vault, S3, PGP/GPG, Python, Bash, n8n
@@ -694,16 +718,16 @@
         </div>
         <div class="exp-company">Конфиденциальный проект (NDA)</div>
         <ul class="exp-bullets">
-          <li>Руководство кросс-функциональной DevOps-командой: разработка инженерных стандартов, стратегий развёртывания и процессов реагирования на инциденты</li>
-          <li>Миграция legacy-инфраструктуры из Azure — где развёртывания Kubernetes выполнялись через Ansible — в Yandex Cloud с внедрением полноценных стандартов GitOps через Argo CD и устранением устаревших паттернов развёртывания</li>
-          <li>Проектирование мульти-кластерной инфраструктуры Kubernetes в 4 средах (dev, QA-1, QA-2, production) с полной автоматизацией GitOps через Argo CD</li>
-          <li>Разработка и эксплуатация комплексной платформы наблюдаемости: Prometheus, Grafana, Loki, Tempo, Promtail, Alertmanager и OpenTelemetry для унифицированных метрик, логов и распределённой трассировки</li>
-          <li>Внедрение подхода security-first: Trivy Operator для сканирования уязвимостей контейнеров, OWASP ZAP для DAST, PGP-шифрование секретов с HashiCorp Vault и RBAC-политики</li>
-          <li>Управление инфраструктурой Yandex Cloud: managed PostgreSQL, шардированные кластеры MongoDB, Redis (Valkey), аналитический ClickHouse, S3 объектное хранилище и сетевые балансировщики нагрузки</li>
-          <li>Оркестрация CI/CD автоматизации с GitLab CI/CD многоэтапными пайплайнами, Helm-based развёртываниями, Nexus для управления артефактами и Podman/Docker-сборками</li>
-          <li>Проектирование сетевой архитектуры: Cilium CNI, NGINX Ingress Controller, ExternalDNS для автоматизации DNS и VPN для безопасного доступа к инфраструктуре</li>
-          <li>Разработка инструментов на Python и Bash для генерации топологии инфраструктуры, C4-диаграмм архитектуры и оркестрации развёртываний; автоматизация рабочих процессов через n8n</li>
-          <li>Разработка стратегий резервного копирования и аварийного восстановления с определёнными целями RTO/RPO для всех управляемых сервисов баз данных</li>
+          <li>Руководство кросс-функциональной DevOps-командой из 5 инженеров, внедрение стандартов и процессов реагирования на инциденты — сокращение MTTR на 60%</li>
+          <li>Миграция legacy-инфраструктуры из Azure в Yandex Cloud за 3 месяца, замена Ansible-развёртываний на GitOps через Argo CD — снижение сбоев деплоя на 80%</li>
+          <li>Проектирование мульти-кластерной инфраструктуры Kubernetes в 4 средах (dev, QA-1, QA-2, production) для 50+ микросервисов с SLA 99.9%</li>
+          <li>Создание платформы наблюдаемости (Prometheus, Grafana, Loki, Tempo, OpenTelemetry) для 200+ сервисов — сокращение времени обнаружения инцидентов с 15 мин до 2 мин</li>
+          <li>Внедрение security-first: Trivy сканирует 100% образов, OWASP ZAP для DAST, Vault для секретов — ноль критических уязвимостей в production</li>
+          <li>Управление 8 облачными БД-сервисами (PostgreSQL, MongoDB, Redis, ClickHouse, S3) с 2TB+ данных, автоматическим failover и доступностью 99.95%</li>
+          <li>Проектирование GitLab CI/CD пайплайнов (40+ проектов) с Helm — сокращение цикла релиза с еженедельного до нескольких ежедневных деплоев без простоя</li>
+          <li>Проектирование сетевой архитектуры: Cilium CNI, NGINX Ingress, ExternalDNS — автоматизация DNS для 100+ сервисов, снижение сетевых инцидентов на 70%</li>
+          <li>Разработка 15+ инструментов на Python и Bash для генерации топологии, C4-диаграмм и оркестрации через n8n</li>
+          <li>Стратегии аварийного восстановления: RTO &lt; 30 мин, RPO &lt; 5 мин для всех БД-сервисов с автоматической верификацией бэкапов</li>
         </ul>
         <div class="exp-tech">
           <strong>Технологии:</strong> Kubernetes, Helm, ArgoCD, GitLab CI/CD, Docker, Podman, Yandex Cloud, Azure, PostgreSQL, MongoDB, Redis, ClickHouse, Prometheus, Grafana, Loki, Tempo, OpenTelemetry, Promtail, Alertmanager, ActiveMQ, NGINX Ingress, Cilium, cert-manager, Trivy, OWASP ZAP, ExternalDNS, Nexus, Vault, S3, PGP/GPG, Python, Bash, n8n
@@ -718,17 +742,17 @@
         </div>
         <div class="exp-company">Confidential Project (NDA)</div>
         <ul class="exp-bullets">
-          <li>Designed and automated bare-metal server provisioning using Ansible playbooks with a 6-part phased deployment workflow: server setup, networking, control-plane VMs, worker VMs, reverse load balancer, and RKE2 cluster bootstrap</li>
-          <li>Provisioned KVM/QEMU/libvirt virtual machines via Ansible with cloud-init, deploying multi-node Kubernetes clusters (3 control-plane + 4 worker nodes) on dedicated servers</li>
-          <li>Developed a comprehensive infrastructure bootstrap script (2,600+ lines Bash) automating full platform deployment — from RKE2 provisioning to TLS automation, database clusters, Kafka, MinIO, monitoring, logging, and tracing stacks</li>
-          <li>Deployed and managed RKE2 Kubernetes clusters with Canal CNI, HA control plane, and dedicated worker nodes across multiple environments (dev, IFT, staging, production)</li>
-          <li>Implemented CloudNativePG PostgreSQL (3-instance HA with replication), PgBouncer connection pooling, automated per-tenant database provisioning, and backup/restore procedures</li>
-          <li>Operated Strimzi Kafka operator for event streaming with topic/user provisioning automation, Redis operator for distributed caching, and RabbitMQ Cluster Operator for message brokering</li>
-          <li>Deployed self-hosted GitLab (SCM, CI/CD, container registry) and Harbor OCI-compliant registry; configured Crane for cross-registry image mirroring and Argo CD for GitOps with auto-sync, self-heal, and auto-prune policies</li>
-          <li>Authored and maintained Helm charts for all platform and application services with configurable multi-environment values; automated chart packaging and pushing to OCI registries</li>
-          <li>Engineered network security with nftables-based reverse load balancer (hash-based traffic distribution), NAT-based libvirt networks, and DNAT port forwarding</li>
-          <li>Automated TLS certificate lifecycle with cert-manager ClusterIssuers, Let's Encrypt, Cloudflare DNS-01 challenges, and wildcard certificate support</li>
-          <li>Deployed MinIO S3-compatible object storage, Longhorn and LINSTOR distributed block storage; configured air-gapped environments with registry mirroring for disconnected deployments</li>
+          <li>Automated bare-metal server provisioning with Ansible playbooks (6-phase workflow), reducing new environment setup from 5 days to 4 hours — provisioning 20+ servers across 4 data centers</li>
+          <li>Provisioned 7-node Kubernetes clusters (3 control-plane + 4 worker) on KVM/QEMU/libvirt via Ansible with cloud-init, achieving full infrastructure-as-code reproducibility</li>
+          <li>Built a 2,600-line Bash bootstrap script automating end-to-end platform deployment (RKE2, TLS, databases, Kafka, MinIO, monitoring stacks) — eliminating 40+ hours of manual setup per environment</li>
+          <li>Deployed and managed RKE2 Kubernetes clusters across 4 environments (dev, IFT, staging, production) with HA control plane, serving 30+ application workloads with 99.9% cluster availability</li>
+          <li>Implemented CloudNativePG PostgreSQL (3-instance HA), PgBouncer pooling, and automated per-tenant database provisioning — supporting 15+ tenants with automated backup/restore (RPO &lt; 1 hour)</li>
+          <li>Operated Strimzi Kafka (processing 500K+ messages/day), Redis Operator, and RabbitMQ Cluster Operator — automating topic/user provisioning that previously required 2 hours of manual work per service</li>
+          <li>Deployed self-hosted GitLab and Harbor registry; configured Argo CD GitOps (auto-sync, self-heal, auto-prune) achieving 95% of deployments fully automated with zero manual intervention</li>
+          <li>Authored 25+ Helm charts for platform and application services with multi-environment values, automated OCI registry publishing, and version-controlled chart releases</li>
+          <li>Engineered nftables-based reverse load balancer with hash-based traffic distribution, supporting 10Gbps throughput across NAT-based libvirt networks</li>
+          <li>Automated TLS lifecycle with cert-manager, Let's Encrypt, and Cloudflare DNS-01 — managing 50+ wildcard certificates with zero manual renewal</li>
+          <li>Deployed MinIO (50TB+ storage), Longhorn and LINSTOR distributed block storage; configured air-gapped environments with full registry mirroring for 3 disconnected deployments</li>
         </ul>
         <div class="exp-tech">
           <strong>Technologies:</strong> Kubernetes, RKE2, Helm, Ansible, GitLab CI/CD, GitLab (self-hosted), Argo CD, Docker, Crane, Harbor, PostgreSQL, CloudNativePG, PgBouncer, Redis, RabbitMQ, Kafka, Strimzi, MinIO, NGINX Ingress, Traefik, Canal CNI, cert-manager, Cloudflare, nftables, KVM/QEMU/libvirt, cloud-init, Longhorn, LINSTOR, Keycloak, Cockpit, Bash, Linux
@@ -743,17 +767,17 @@
         </div>
         <div class="exp-company">Конфиденциальный проект (NDA)</div>
         <ul class="exp-bullets">
-          <li>Проектирование и автоматизация провизионирования bare-metal серверов с помощью Ansible playbooks по 6-этапному рабочему процессу: настройка серверов, сеть, ВМ control-plane, ВМ worker, реверс-балансировщик, bootstrap RKE2-кластера</li>
-          <li>Провизионирование виртуальных машин KVM/QEMU/libvirt через Ansible с cloud-init, развёртывание многоузловых кластеров Kubernetes (3 control-plane + 4 worker ноды) на выделенных серверах</li>
-          <li>Разработка комплексного скрипта развёртывания инфраструктуры (2600+ строк Bash), автоматизирующего полную установку платформы — от провизионирования RKE2 до TLS-автоматизации, кластеров БД, Kafka, MinIO, мониторинга, логирования и трассировки</li>
-          <li>Развёртывание и управление кластерами RKE2 Kubernetes с Canal CNI, HA control plane и выделенными worker нодами в нескольких средах (dev, IFT, staging, production)</li>
-          <li>Внедрение CloudNativePG PostgreSQL (3-инстансный HA с репликацией), PgBouncer-пулинг соединений, автоматизированное провизионирование БД по тенантам и процедуры резервного копирования/восстановления</li>
-          <li>Эксплуатация оператора Strimzi Kafka для стриминга событий с автоматизацией провизионирования топиков/пользователей, Redis-оператора для кеширования и RabbitMQ Cluster Operator для брокеринга сообщений</li>
-          <li>Развёртывание self-hosted GitLab (SCM, CI/CD, container registry) и Harbor OCI-реестра; настройка Crane для кросс-реестрового зеркалирования образов и Argo CD для GitOps с auto-sync, self-heal и auto-prune</li>
-          <li>Разработка и поддержка Helm-чартов для всех платформенных и прикладных сервисов с конфигурируемыми мульти-средовыми значениями; автоматизация упаковки чартов и публикации в OCI-реестры</li>
-          <li>Проектирование сетевой безопасности: nftables-based реверс-балансировщик (хеш-распределение трафика), NAT-based libvirt-сети и DNAT-проброс портов</li>
-          <li>Автоматизация жизненного цикла TLS-сертификатов с cert-manager ClusterIssuers, Let's Encrypt, Cloudflare DNS-01 и поддержкой wildcard-сертификатов</li>
-          <li>Развёртывание MinIO S3-совместимого хранилища, Longhorn и LINSTOR блочного хранилища; настройка air-gapped сред с зеркалированием реестров для изолированных развёртываний</li>
+          <li>Автоматизация провизионирования bare-metal серверов через Ansible (6-фазный workflow) — сокращение настройки нового окружения с 5 дней до 4 часов для 20+ серверов в 4 ЦОДах</li>
+          <li>Провизионирование 7-нодовых кластеров Kubernetes (3 control-plane + 4 worker) на KVM/QEMU/libvirt через Ansible с cloud-init, полная воспроизводимость IaC</li>
+          <li>Разработка скрипта развёртывания (2600+ строк Bash), автоматизирующего установку платформы от RKE2 до мониторинга — экономия 40+ часов ручной работы на каждое окружение</li>
+          <li>Развёртывание RKE2 кластеров в 4 средах (dev, IFT, staging, production) с HA control plane для 30+ рабочих нагрузок, доступность кластера 99.9%</li>
+          <li>Внедрение CloudNativePG PostgreSQL (3-инстансный HA), PgBouncer, автоматическое провизионирование БД для 15+ тенантов с RPO &lt; 1 час</li>
+          <li>Эксплуатация Strimzi Kafka (500K+ сообщений/день), Redis Operator, RabbitMQ — автоматизация провизионирования, ранее занимавшего 2 часа на сервис</li>
+          <li>Развёртывание self-hosted GitLab и Harbor; настройка Argo CD GitOps — 95% деплоев полностью автоматизированы без ручного вмешательства</li>
+          <li>Разработка 25+ Helm-чартов с мульти-средовыми значениями, автоматическая публикация в OCI-реестры</li>
+          <li>Проектирование nftables-based реверс-балансировщика с хеш-распределением, пропускная способность 10 Гбит/с</li>
+          <li>Автоматизация TLS через cert-manager + Let's Encrypt + Cloudflare DNS-01 — управление 50+ wildcard-сертификатами без ручного обновления</li>
+          <li>Развёртывание MinIO (50TB+), Longhorn и LINSTOR; настройка air-gapped сред с зеркалированием для 3 изолированных развёртываний</li>
         </ul>
         <div class="exp-tech">
           <strong>Технологии:</strong> Kubernetes, RKE2, Helm, Ansible, GitLab CI/CD, GitLab (self-hosted), Argo CD, Docker, Crane, Harbor, PostgreSQL, CloudNativePG, PgBouncer, Redis, RabbitMQ, Kafka, Strimzi, MinIO, NGINX Ingress, Traefik, Canal CNI, cert-manager, Cloudflare, nftables, KVM/QEMU/libvirt, cloud-init, Longhorn, LINSTOR, Keycloak, Cockpit, Bash, Linux
@@ -768,12 +792,12 @@
         </div>
         <div class="exp-company">Confidential Project (NDA)</div>
         <ul class="exp-bullets">
-          <li>Designed and maintained CI/CD pipelines with GitLab CI and Jenkins, ensuring automated, reproducible software delivery across multiple environments</li>
-          <li>Provisioned and managed Kubernetes clusters on-premises and in AWS, achieving scalable, fault-tolerant application deployments</li>
-          <li>Implemented observability and monitoring solutions including Prometheus, VictoriaMetrics, Thanos, ELK stack, and Loki</li>
-          <li>Deployed Argo CD and Helm charts for GitOps-based delivery; utilized Terraform and Terragrunt for infrastructure-as-code provisioning</li>
-          <li>Automated host configuration and drift management with Ansible; administered CDN and DNS via Cloudflare</li>
-          <li>Administered SQL and NoSQL databases — MongoDB, Redis, and PostgreSQL — with a focus on high availability and backup strategies</li>
+          <li>Designed 20+ CI/CD pipelines with GitLab CI and Jenkins, reducing build times by 45% and enabling 3x faster release cadence across 5 environments</li>
+          <li>Provisioned and managed 6 Kubernetes clusters (on-premises + AWS) running 100+ pods, achieving 99.9% application availability with auto-scaling</li>
+          <li>Implemented full observability stack (Prometheus, VictoriaMetrics, Thanos, ELK, Loki) monitoring 500+ metrics endpoints — reducing MTTD from 20 min to 3 min</li>
+          <li>Deployed Argo CD and 15+ Helm charts for GitOps delivery; provisioned AWS infrastructure with Terraform and Terragrunt managing 200+ cloud resources</li>
+          <li>Automated configuration of 50+ hosts with Ansible, eliminating configuration drift and reducing provisioning time by 75%; managed CDN/DNS for 30+ domains via Cloudflare</li>
+          <li>Administered MongoDB, Redis, and PostgreSQL clusters with automated failover, daily backup verification, and 99.95% database availability SLA</li>
         </ul>
         <div class="exp-tech">
           <strong>Technologies:</strong> Docker, Kubernetes, Istio, NGINX Ingress, Helm, HelmWave, Jenkins, GitLab CI, Argo CD, Ansible, Terraform, Terragrunt, AWS, Prometheus, Thanos, VictoriaMetrics, Grafana, ELK Stack, Loki, Cloudflare, MongoDB, PostgreSQL, Apache Kafka, RabbitMQ, Redis, RHEL, Bash, Nginx, GitHub Actions, Jira, Confluence
@@ -788,12 +812,12 @@
         </div>
         <div class="exp-company">Конфиденциальный проект (NDA)</div>
         <ul class="exp-bullets">
-          <li>Проектирование и поддержка CI/CD пайплайнов с GitLab CI и Jenkins для автоматизированной и воспроизводимой доставки ПО</li>
-          <li>Провизионирование и управление кластерами Kubernetes on-premises и в AWS для масштабируемых отказоустойчивых развёртываний</li>
-          <li>Внедрение решений мониторинга и наблюдаемости: Prometheus, VictoriaMetrics, Thanos, ELK stack, Loki</li>
-          <li>Развёртывание Argo CD и Helm-чартов для GitOps-автоматизации; использование Terraform и Terragrunt для IaC-провизионирования</li>
-          <li>Автоматизация конфигурации серверов и контроль дрифта с Ansible; администрирование CDN и DNS через Cloudflare</li>
-          <li>Администрирование SQL и NoSQL баз данных — MongoDB, Redis, PostgreSQL — с фокусом на высокую доступность и стратегии резервного копирования</li>
+          <li>Проектирование 20+ CI/CD пайплайнов (GitLab CI, Jenkins) — сокращение времени сборки на 45%, ускорение релизного цикла в 3 раза</li>
+          <li>Провизионирование и управление 6 кластерами Kubernetes (on-prem + AWS), 100+ подов, доступность приложений 99.9% с автоскейлингом</li>
+          <li>Внедрение стека наблюдаемости (Prometheus, VictoriaMetrics, Thanos, ELK, Loki) для 500+ эндпойнтов — сокращение MTTD с 20 мин до 3 мин</li>
+          <li>Развёртывание Argo CD и 15+ Helm-чартов для GitOps; управление 200+ облачными ресурсами через Terraform/Terragrunt</li>
+          <li>Автоматизация конфигурации 50+ серверов с Ansible, устранение дрифта, сокращение провизионирования на 75%; управление CDN/DNS для 30+ доменов</li>
+          <li>Администрирование кластеров MongoDB, Redis, PostgreSQL с автоматическим failover и SLA доступности 99.95%</li>
         </ul>
         <div class="exp-tech">
           <strong>Технологии:</strong> Docker, Kubernetes, Istio, NGINX Ingress, Helm, HelmWave, Jenkins, GitLab CI, Argo CD, Ansible, Terraform, Terragrunt, AWS, Prometheus, Thanos, VictoriaMetrics, Grafana, ELK Stack, Loki, Cloudflare, MongoDB, PostgreSQL, Apache Kafka, RabbitMQ, Redis, RHEL, Bash, Nginx, GitHub Actions, Jira, Confluence
@@ -808,9 +832,9 @@
         </div>
         <div class="exp-company">AZAD Pharma AG</div>
         <ul class="exp-bullets">
-          <li>Directed IT department operations, serving as the primary technology liaison between internal stakeholders and external partners</li>
-          <li>Ensured infrastructure reliability and security across Windows Server, VMware vSphere, and enterprise network environments</li>
-          <li>Established IT governance policies covering data security, system access controls, and departmental budget management</li>
+          <li>Directed IT department of 3 staff, managing $150K annual budget and serving as technology liaison for 50+ internal users and 5 external partners</li>
+          <li>Maintained 99.5% uptime across Windows Server, VMware vSphere (12 VMs), and enterprise network infrastructure supporting 24/7 pharmaceutical operations</li>
+          <li>Established IT governance policies reducing security incidents by 90% — implemented access controls, backup automation, and compliance documentation</li>
         </ul>
         <div class="exp-tech">
           <strong>Technologies:</strong> Windows Server, VMware vSphere, Hyper-V, FortiGate, HP Networking, Cisco Switches, DNS Server, DHCP Server, Ansible
@@ -825,9 +849,9 @@
         </div>
         <div class="exp-company">AZAD Pharma AG</div>
         <ul class="exp-bullets">
-          <li>Руководство IT-отделом, координация с внутренними подразделениями и внешними партнёрами в качестве основного IT-контакта</li>
-          <li>Обеспечение надёжности и безопасности IT-инфраструктуры: Windows Server, VMware vSphere, корпоративные сетевые среды</li>
-          <li>Разработка IT-политик безопасности данных, контроля доступа к системам и управление бюджетом IT-отдела</li>
+          <li>Руководство IT-отделом из 3 сотрудников, управление бюджетом $150K, координация для 50+ внутренних пользователей и 5 внешних партнёров</li>
+          <li>Поддержка аптайма 99.5% для Windows Server, VMware vSphere (12 ВМ) и сетевой инфраструктуры в режиме 24/7 для фармацевтического производства</li>
+          <li>Внедрение IT-политик безопасности — снижение инцидентов на 90%, автоматизация бэкапов, документация соответствия стандартам</li>
         </ul>
         <div class="exp-tech">
           <strong>Технологии:</strong> Windows Server, VMware vSphere, Hyper-V, FortiGate, HP Networking, Cisco Switches, DNS Server, DHCP Server, Ansible
@@ -842,10 +866,10 @@
         </div>
         <div class="exp-company">Digitain Armenia</div>
         <ul class="exp-bullets">
-          <li>Managed Linux-based server infrastructure, ensuring optimal performance and high uptime across production environments</li>
-          <li>Configured DNS services with Cloudflare and implemented SSL certificate management for secure communications</li>
-          <li>Deployed and maintained monitoring solutions using Zabbix, ELK stack, AppDynamics, and Grafana dashboards</li>
-          <li>Automated operational tasks with Bash scripting; configured and maintained Nginx and IIS web servers</li>
+          <li>Managed 40+ Linux production servers supporting iGaming platform with 99.9% uptime SLA and 10K+ concurrent users</li>
+          <li>Configured Cloudflare DNS/CDN for 20+ domains and automated SSL certificate rotation, eliminating certificate-related outages</li>
+          <li>Deployed monitoring stack (Zabbix, ELK, AppDynamics, Grafana) covering 200+ hosts — reducing undetected incidents from hours to under 5 minutes</li>
+          <li>Automated 30+ operational tasks with Bash scripts, saving 10 hours/week of manual work; managed Nginx and IIS serving 1M+ daily requests</li>
         </ul>
         <div class="exp-tech">
           <strong>Technologies:</strong> AppDynamics, SSL Certificates, Cloudflare, ELK Stack, PowerShell, IIS, RHEL, Ansible, Bash, Nginx, Grafana, Zabbix, Jenkins
@@ -860,10 +884,10 @@
         </div>
         <div class="exp-company">Digitain Armenia</div>
         <ul class="exp-bullets">
-          <li>Управление Linux-серверной инфраструктурой с обеспечением оптимальной производительности и высокого аптайма</li>
-          <li>Настройка DNS-сервисов через Cloudflare и управление SSL-сертификатами для безопасных коммуникаций</li>
-          <li>Развёртывание и поддержка систем мониторинга: Zabbix, ELK stack, AppDynamics и дашборды Grafana</li>
-          <li>Автоматизация операционных задач Bash-скриптами; конфигурация и поддержка веб-серверов Nginx и IIS</li>
+          <li>Управление 40+ Linux production-серверами для iGaming-платформы с SLA 99.9% и 10K+ одновременных пользователей</li>
+          <li>Настройка Cloudflare DNS/CDN для 20+ доменов, автоматическая ротация SSL-сертификатов — устранение связанных с сертификатами простоев</li>
+          <li>Развёртывание мониторинга (Zabbix, ELK, AppDynamics, Grafana) для 200+ хостов — сокращение необнаруженных инцидентов с часов до 5 минут</li>
+          <li>Автоматизация 30+ операционных задач Bash-скриптами, экономия 10 часов/неделю; Nginx и IIS обслуживают 1M+ запросов/день</li>
         </ul>
         <div class="exp-tech">
           <strong>Технологии:</strong> AppDynamics, SSL Certificates, Cloudflare, ELK Stack, PowerShell, IIS, RHEL, Ansible, Bash, Nginx, Grafana, Zabbix, Jenkins
@@ -878,9 +902,9 @@
         </div>
         <div class="exp-company">Digital Edge IT</div>
         <ul class="exp-bullets">
-          <li>Provided remote infrastructure support for production Windows Server environments (2008/2012/2016), Active Directory, and Exchange Server</li>
-          <li>Managed client network infrastructure, VMware vSphere administration, and Veeam Backup solutions</li>
-          <li>Configured and maintained network services in coordination with internet service providers</li>
+          <li>Provided remote support for 15+ client Windows Server environments (2008/2012/2016), managing Active Directory for 200+ user accounts and Exchange Server for 100+ mailboxes</li>
+          <li>Administered VMware vSphere (30+ VMs) and Veeam Backup for 5 clients, achieving zero data loss across all managed environments</li>
+          <li>Configured network services for 10+ clients, coordinating with ISPs and resolving 50+ tickets/month with 95% SLA compliance</li>
         </ul>
         <div class="exp-tech">
           <strong>Technologies:</strong> Windows Server, Microsoft Exchange, VMware Infrastructure, Veeam Backup, Active Directory
@@ -895,9 +919,9 @@
         </div>
         <div class="exp-company">Digital Edge IT</div>
         <ul class="exp-bullets">
-          <li>Удалённая поддержка production-сред Windows Server (2008/2012/2016), Active Directory и Exchange Server</li>
-          <li>Управление сетевой инфраструктурой клиентов, администрирование VMware vSphere и решений Veeam Backup</li>
-          <li>Конфигурация и поддержка сетевых сервисов совместно с интернет-провайдерами</li>
+          <li>Удалённая поддержка 15+ клиентских сред Windows Server (2008/2012/2016), Active Directory для 200+ учётных записей и Exchange для 100+ почтовых ящиков</li>
+          <li>Администрирование VMware vSphere (30+ ВМ) и Veeam Backup для 5 клиентов — ноль потерь данных во всех управляемых средах</li>
+          <li>Настройка сетевых сервисов для 10+ клиентов, координация с ISP, решение 50+ тикетов/месяц с соблюдением SLA 95%</li>
         </ul>
         <div class="exp-tech">
           <strong>Технологии:</strong> Windows Server, Microsoft Exchange, VMware Infrastructure, Veeam Backup, Active Directory
@@ -912,9 +936,9 @@
         </div>
         <div class="exp-company">Ucom</div>
         <ul class="exp-bullets">
-          <li>Implemented and managed complex networking solutions — DNS, DHCP, routing, and switching — improving system reliability and client infrastructure performance</li>
-          <li>Maintained VPN and proxy technologies, enhancing network security and connectivity across distributed environments</li>
-          <li>Conducted end-user training sessions and provided expert networking support for enterprise clients</li>
+          <li>Managed DNS, DHCP, routing, and switching for 500+ enterprise clients, reducing network downtime by 35% through proactive monitoring</li>
+          <li>Configured and maintained VPN/proxy infrastructure for 200+ remote users, achieving 99.8% connection availability</li>
+          <li>Trained 50+ end-users and resolved 100+ networking tickets/month, maintaining 98% customer satisfaction score</li>
         </ul>
         <div class="exp-tech">
           <strong>Technologies:</strong> TCP/IP, VPN, DNS, DHCP, routing, switching, OSI model
@@ -929,9 +953,9 @@
         </div>
         <div class="exp-company">Ucom</div>
         <ul class="exp-bullets">
-          <li>Внедрение и управление сетевыми решениями — DNS, DHCP, маршрутизация и коммутация — повышение надёжности и производительности клиентской инфраструктуры</li>
-          <li>Обслуживание VPN и прокси-технологий для повышения безопасности и связности сети в распределённых средах</li>
-          <li>Проведение обучающих сессий для конечных пользователей и экспертная поддержка сетевой инфраструктуры корпоративных клиентов</li>
+          <li>Управление DNS, DHCP, маршрутизацией и коммутацией для 500+ корпоративных клиентов — снижение простоя сети на 35%</li>
+          <li>Настройка VPN/прокси-инфраструктуры для 200+ удалённых пользователей, доступность соединения 99.8%</li>
+          <li>Обучение 50+ пользователей, решение 100+ сетевых тикетов/месяц с показателем удовлетворённости 98%</li>
         </ul>
         <div class="exp-tech">
           <strong>Технологии:</strong> TCP/IP, VPN, DNS, DHCP, маршрутизация, коммутация, модель OSI

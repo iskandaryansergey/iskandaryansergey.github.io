@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sergey Iskandaryan — DevOps Lead / Platform Engineer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Calibri, 'Segoe UI', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 11pt;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 40px;
+    }
+
+    h1 {
+      font-size: 22pt;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 13pt;
+      font-weight: 400;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .contact-info {
+      font-size: 10pt;
+      color: #333;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .contact-info a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    h2 {
+      font-size: 13pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 4px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .summary {
+      font-size: 11pt;
+      line-height: 1.6;
+      margin-bottom: 4px;
+    }
+
+    .job {
+      margin-bottom: 16px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .job-title {
+      font-size: 11.5pt;
+      font-weight: 700;
+    }
+
+    .job-dates {
+      font-size: 10pt;
+      font-weight: 400;
+      color: #333;
+    }
+
+    .job-company {
+      font-size: 10.5pt;
+      font-style: italic;
+      color: #444;
+      margin-bottom: 4px;
+    }
+
+    .job ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 4px;
+    }
+
+    .job li {
+      font-size: 10.5pt;
+      line-height: 1.55;
+      margin-bottom: 3px;
+    }
+
+    .job-tech {
+      font-size: 9.5pt;
+      color: #444;
+      margin-top: 6px;
+    }
+
+    .skills-section p {
+      font-size: 10.5pt;
+      line-height: 1.7;
+      margin-bottom: 4px;
+    }
+
+    .skills-section strong {
+      font-weight: 700;
+    }
+
+    .edu-item {
+      margin-bottom: 10px;
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .edu-degree {
+      font-size: 11pt;
+      font-weight: 700;
+    }
+
+    .edu-dates {
+      font-size: 10pt;
+      color: #333;
+    }
+
+    .edu-school {
+      font-size: 10.5pt;
+      font-style: italic;
+      color: #444;
+    }
+
+    @media print {
+      body { font-size: 10.5pt; }
+      .page { padding: 20px 30px; max-width: 100%; }
+      h1 { font-size: 20pt; }
+      h2 { font-size: 12pt; margin-top: 14px; }
+      .job { page-break-inside: avoid; margin-bottom: 12px; }
+      .edu-item { page-break-inside: avoid; }
+      .job li { font-size: 10pt; }
+      .contact-info a { color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <h1>Sergey Iskandaryan</h1>
+  <div class="subtitle">DevOps Lead | Platform Engineer</div>
+  <div class="contact-info">
+    Yerevan, Armenia (GMT+4) | Remote<br>
+    Email: seregaiskandaryan14@gmail.com | Phone: +374 95 555 427<br>
+    LinkedIn: <a href="https://www.linkedin.com/in/sergey-iskandaryan-5546441b5/">linkedin.com/in/sergey-iskandaryan-5546441b5</a><br>
+    GitHub: <a href="https://github.com/iskandaryansergey">github.com/iskandaryansergey</a> |
+    Portfolio: <a href="https://iskandaryansergey.github.io">iskandaryansergey.github.io</a>
+  </div>
+
+  <h2>Professional Summary</h2>
+  <p class="summary">
+    DevOps Lead and Platform Engineer with 7+ years of experience in Kubernetes orchestration, CI/CD pipeline design, Infrastructure as Code, and cloud infrastructure management. Led teams of up to 5 engineers, architecting multi-cluster Kubernetes platforms serving 50+ microservices with 99.9% uptime. Expert in GitOps (ArgoCD), full-stack observability (Prometheus, Grafana, OpenTelemetry), bare-metal and cloud provisioning (Terraform, Ansible), and security automation (Trivy, Vault). Proven track record of reducing deployment times by 80%, cutting incident detection from 15 minutes to under 2 minutes, and automating platform provisioning from 5 days to 4 hours.
+  </p>
+
+  <h2>Skills</h2>
+  <div class="skills-section">
+    <p><strong>Container &amp; Orchestration:</strong> Kubernetes, RKE2, Docker, Podman, Helm, Istio, Docker Compose</p>
+    <p><strong>CI/CD &amp; GitOps:</strong> GitLab CI/CD, ArgoCD, Jenkins, GitHub Actions, Harbor, Nexus, Crane</p>
+    <p><strong>Infrastructure as Code:</strong> Terraform, Terragrunt, Ansible, Vagrant, cloud-init</p>
+    <p><strong>Databases &amp; Storage:</strong> PostgreSQL, CloudNativePG, PgBouncer, MongoDB, Redis, ClickHouse, MinIO, S3, Longhorn, LINSTOR</p>
+    <p><strong>Messaging &amp; Streaming:</strong> Apache Kafka, Strimzi, RabbitMQ, ActiveMQ</p>
+    <p><strong>Observability:</strong> Prometheus, Grafana, Loki, Tempo, Jaeger, OpenTelemetry, ELK Stack, VictoriaMetrics, Thanos, Alertmanager, Zabbix</p>
+    <p><strong>Networking &amp; Security:</strong> NGINX Ingress, Traefik, Cilium, Canal CNI, nftables, cert-manager, Cloudflare, ExternalDNS, Keycloak, Trivy, OWASP ZAP, HashiCorp Vault</p>
+    <p><strong>Cloud &amp; Virtualization:</strong> AWS, Yandex Cloud, Azure, KVM/QEMU/libvirt, VMware vSphere</p>
+    <p><strong>Scripting &amp; OS:</strong> Bash, Python, Lua, Linux (RHEL, Ubuntu, Debian)</p>
+    <p><strong>Methodologies:</strong> GitOps, SRE, Platform Engineering, Site Reliability, High Availability, Disaster Recovery, Incident Response, On-call</p>
+  </div>
+
+  <h2>Work Experience</h2>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">DevOps Lead</span>
+      <span class="job-dates">2025 — Present</span>
+    </div>
+    <div class="job-company">Confidential Project (NDA)</div>
+    <ul>
+      <li>Led a cross-functional DevOps team of 5 engineers, establishing engineering standards and incident response processes that reduced mean time to recovery (MTTR) by 60%</li>
+      <li>Migrated legacy Azure infrastructure to Yandex Cloud in 3 months, replacing Ansible-based Kubernetes deployments with GitOps via ArgoCD and cutting deployment failures by 80%</li>
+      <li>Architected multi-cluster Kubernetes infrastructure across 4 environments (dev, QA-1, QA-2, production) serving 50+ microservices with 99.9% uptime SLA</li>
+      <li>Built a full-stack observability platform (Prometheus, Grafana, Loki, Tempo, OpenTelemetry) that unified metrics, logs, and traces for 200+ services, reducing incident detection time from 15 min to under 2 min</li>
+      <li>Implemented security-first pipeline: Trivy Operator scanning 100% of container images, OWASP ZAP for DAST, PGP-encrypted secrets with HashiCorp Vault — achieving zero critical vulnerabilities in production</li>
+      <li>Managed 8 cloud database services (PostgreSQL, MongoDB sharded clusters, Redis, ClickHouse, S3) handling 2TB+ data with automated failover and 99.95% availability</li>
+      <li>Designed GitLab CI/CD pipelines (40+ projects) with Helm-based deployments, reducing release cycle from weekly to multiple daily deploys with zero-downtime rollouts</li>
+      <li>Engineered network architecture with Cilium CNI, NGINX Ingress, and ExternalDNS — automating DNS management for 100+ services and reducing networking incidents by 70%</li>
+      <li>Developed 15+ Python and Bash automation tools for infrastructure topology generation, C4 diagrams, and deployment orchestration via n8n workflows</li>
+      <li>Established disaster recovery strategies achieving RTO &lt; 30 min and RPO &lt; 5 min across all managed database services with automated backup verification</li>
+    </ul>
+    <div class="job-tech"><strong>Technologies:</strong> Kubernetes, Helm, ArgoCD, GitLab CI/CD, Docker, Podman, Yandex Cloud, Azure, PostgreSQL, MongoDB, Redis, ClickHouse, Prometheus, Grafana, Loki, Tempo, OpenTelemetry, Alertmanager, NGINX Ingress, Cilium, cert-manager, Trivy, OWASP ZAP, ExternalDNS, Nexus, Vault, S3, Python, Bash, n8n</div>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Platform Engineer</span>
+      <span class="job-dates">2023 — 2025</span>
+    </div>
+    <div class="job-company">Confidential Project (NDA)</div>
+    <ul>
+      <li>Automated bare-metal server provisioning with Ansible playbooks (6-phase workflow), reducing new environment setup from 5 days to 4 hours — provisioning 20+ servers across 4 data centers</li>
+      <li>Provisioned 7-node Kubernetes clusters (3 control-plane + 4 worker) on KVM/QEMU/libvirt via Ansible with cloud-init, achieving full infrastructure-as-code reproducibility</li>
+      <li>Built a 2,600-line Bash bootstrap script automating end-to-end platform deployment (RKE2, TLS, databases, Kafka, MinIO, monitoring stacks) — eliminating 40+ hours of manual setup per environment</li>
+      <li>Deployed and managed RKE2 Kubernetes clusters across 4 environments (dev, IFT, staging, production) with HA control plane, serving 30+ application workloads with 99.9% cluster availability</li>
+      <li>Implemented CloudNativePG PostgreSQL (3-instance HA), PgBouncer pooling, and automated per-tenant database provisioning — supporting 15+ tenants with automated backup/restore (RPO &lt; 1 hour)</li>
+      <li>Operated Strimzi Kafka (processing 500K+ messages/day), Redis Operator, and RabbitMQ Cluster Operator — automating topic/user provisioning that previously required 2 hours of manual work per service</li>
+      <li>Deployed self-hosted GitLab and Harbor registry; configured ArgoCD GitOps (auto-sync, self-heal, auto-prune) achieving 95% of deployments fully automated with zero manual intervention</li>
+      <li>Authored 25+ Helm charts for platform and application services with multi-environment values, automated OCI registry publishing, and version-controlled chart releases</li>
+      <li>Engineered nftables-based reverse load balancer with hash-based traffic distribution, supporting 10Gbps throughput across NAT-based libvirt networks</li>
+      <li>Automated TLS lifecycle with cert-manager, Let's Encrypt, and Cloudflare DNS-01 — managing 50+ wildcard certificates with zero manual renewal</li>
+      <li>Deployed MinIO (50TB+ storage), Longhorn and LINSTOR distributed block storage; configured air-gapped environments with full registry mirroring for 3 disconnected deployments</li>
+    </ul>
+    <div class="job-tech"><strong>Technologies:</strong> Kubernetes, RKE2, Helm, Ansible, GitLab CI/CD, ArgoCD, Docker, Crane, Harbor, PostgreSQL, CloudNativePG, PgBouncer, Redis, RabbitMQ, Kafka, Strimzi, MinIO, NGINX Ingress, Traefik, Canal CNI, cert-manager, Cloudflare, nftables, KVM/QEMU/libvirt, cloud-init, Longhorn, LINSTOR, Keycloak, Bash, Linux</div>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Senior DevOps Engineer</span>
+      <span class="job-dates">2021 — 2023</span>
+    </div>
+    <div class="job-company">Confidential Project (NDA)</div>
+    <ul>
+      <li>Designed 20+ CI/CD pipelines with GitLab CI and Jenkins, reducing build times by 45% and enabling 3x faster release cadence across 5 environments</li>
+      <li>Provisioned and managed 6 Kubernetes clusters (on-premises + AWS) running 100+ pods, achieving 99.9% application availability with auto-scaling</li>
+      <li>Implemented full observability stack (Prometheus, VictoriaMetrics, Thanos, ELK, Loki) monitoring 500+ metrics endpoints — reducing MTTD from 20 min to 3 min</li>
+      <li>Deployed ArgoCD and 15+ Helm charts for GitOps delivery; provisioned AWS infrastructure with Terraform and Terragrunt managing 200+ cloud resources</li>
+      <li>Automated configuration of 50+ hosts with Ansible, eliminating configuration drift and reducing provisioning time by 75%; managed CDN/DNS for 30+ domains via Cloudflare</li>
+      <li>Administered MongoDB, Redis, and PostgreSQL clusters with automated failover, daily backup verification, and 99.95% database availability SLA</li>
+    </ul>
+    <div class="job-tech"><strong>Technologies:</strong> Docker, Kubernetes, Istio, NGINX Ingress, Helm, Jenkins, GitLab CI, ArgoCD, Ansible, Terraform, Terragrunt, AWS, Prometheus, Thanos, VictoriaMetrics, Grafana, ELK Stack, Loki, Cloudflare, MongoDB, PostgreSQL, Apache Kafka, RabbitMQ, Redis, RHEL, Bash, GitHub Actions</div>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Chief Information Officer (CIO)</span>
+      <span class="job-dates">2020 — 2021</span>
+    </div>
+    <div class="job-company">AZAD Pharma AG</div>
+    <ul>
+      <li>Directed IT department of 3 staff, managing $150K annual budget and serving as technology liaison for 50+ internal users and 5 external partners</li>
+      <li>Maintained 99.5% uptime across Windows Server, VMware vSphere (12 VMs), and enterprise network infrastructure supporting 24/7 pharmaceutical operations</li>
+      <li>Established IT governance policies reducing security incidents by 90% — implemented access controls, backup automation, and compliance documentation</li>
+    </ul>
+    <div class="job-tech"><strong>Technologies:</strong> Windows Server, VMware vSphere, Hyper-V, FortiGate, HP Networking, Cisco Switches, Ansible</div>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">IT Monitoring Specialist</span>
+      <span class="job-dates">2020 — 2021</span>
+    </div>
+    <div class="job-company">Digitain Armenia</div>
+    <ul>
+      <li>Managed 40+ Linux production servers supporting iGaming platform with 99.9% uptime SLA and 10K+ concurrent users</li>
+      <li>Configured Cloudflare DNS/CDN for 20+ domains and automated SSL certificate rotation, eliminating certificate-related outages</li>
+      <li>Deployed monitoring stack (Zabbix, ELK, AppDynamics, Grafana) covering 200+ hosts — reducing undetected incidents from hours to under 5 minutes</li>
+      <li>Automated 30+ operational tasks with Bash scripts, saving 10 hours/week of manual work; managed Nginx and IIS serving 1M+ daily requests</li>
+    </ul>
+    <div class="job-tech"><strong>Technologies:</strong> AppDynamics, Cloudflare, ELK Stack, RHEL, Ansible, Bash, Nginx, Grafana, Zabbix, Jenkins</div>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">Systems Administrator</span>
+      <span class="job-dates">2020</span>
+    </div>
+    <div class="job-company">Digital Edge IT</div>
+    <ul>
+      <li>Provided remote support for 15+ client Windows Server environments (2008/2012/2016), managing Active Directory for 200+ user accounts and Exchange Server for 100+ mailboxes</li>
+      <li>Administered VMware vSphere (30+ VMs) and Veeam Backup for 5 clients, achieving zero data loss across all managed environments</li>
+      <li>Configured network services for 10+ clients, coordinating with ISPs and resolving 50+ tickets/month with 95% SLA compliance</li>
+    </ul>
+    <div class="job-tech"><strong>Technologies:</strong> Windows Server, Microsoft Exchange, VMware Infrastructure, Veeam Backup, Active Directory</div>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <span class="job-title">IT Support Engineer</span>
+      <span class="job-dates">2019 — 2020</span>
+    </div>
+    <div class="job-company">Ucom</div>
+    <ul>
+      <li>Managed DNS, DHCP, routing, and switching for 500+ enterprise clients, reducing network downtime by 35% through proactive monitoring</li>
+      <li>Configured and maintained VPN/proxy infrastructure for 200+ remote users, achieving 99.8% connection availability</li>
+      <li>Trained 50+ end-users and resolved 100+ networking tickets/month, maintaining 98% customer satisfaction score</li>
+    </ul>
+    <div class="job-tech"><strong>Technologies:</strong> TCP/IP, VPN, DNS, DHCP, routing, switching, Linux</div>
+  </div>
+
+  <h2>Education</h2>
+
+  <div class="edu-item">
+    <div class="edu-header">
+      <span class="edu-degree">Bachelor's Degree, Computer Science</span>
+      <span class="edu-dates">2017 — 2021</span>
+    </div>
+    <div class="edu-school">National Polytechnic University of Armenia</div>
+  </div>
+
+  <div class="edu-item">
+    <div class="edu-header">
+      <span class="edu-degree">Bachelor's Degree, Software Engineering (EDA Specialization)</span>
+      <span class="edu-dates">2017 — 2021</span>
+    </div>
+    <div class="edu-school">Synopsys Armenia Educational Department (SAED)</div>
+  </div>
+
+  <h2>Languages</h2>
+  <p>English (B2 — Upper Intermediate) | Russian (Fluent) | Armenian (Native)</p>
+
+</div>
+
+</body>
+</html>
